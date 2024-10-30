@@ -1,0 +1,30 @@
+-- Criação da tabela CadastroFazenda
+CREATE TABLE CadastroFazenda (
+    cnpj VARCHAR(18) PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    ramo VARCHAR(50),
+    telefone VARCHAR(15),
+    email VARCHAR(100),
+    cep VARCHAR(9),
+    rua VARCHAR(100),
+    nCasa INTEGER,
+    bairro VARCHAR(50),
+    cidade VARCHAR(50),
+    estado CHAR(2)
+);
+
+-- Criação da tabela CadastroAnimal
+CREATE TABLE CadastroAnimal (
+    animalId SERIAL PRIMARY KEY,
+    fazendaId VARCHAR(18) REFERENCES CadastroFazenda(cnpj),
+    raca VARCHAR(50),
+    peso REAL,
+    rebanho VARCHAR(50),
+    procedencia VARCHAR(100),
+    especie VARCHAR(50),
+    sexo CHAR(10),
+    alimentacao VARCHAR(50),
+    especificacao VARCHAR(50),
+    dataNascimento DATE,
+    dataChegada DATE
+);
