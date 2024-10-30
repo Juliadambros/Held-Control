@@ -41,7 +41,6 @@ public class PesquisaAnimalController {
 
     @FXML
     public void initialize() {
-        // Inicialização, se necessário
     }
 
     @FXML
@@ -71,18 +70,16 @@ public class PesquisaAnimalController {
     @FXML
     private void handlePesquisar(ActionEvent event) {
         try {
-            int codigoAnimal = Integer.parseInt(nBrinco.getText()); // Obtém o número do brinco do campo de texto
+            int codigoAnimal = Integer.parseInt(nBrinco.getText()); 
 
             PesquisaAnimalDBDAO pesquisaAnimalDAO = new PesquisaAnimalDBDAO();
             CadastroAnimal animal = pesquisaAnimalDAO.buscaPorCodigo(codigoAnimal);
 
             if (animal != null) {
-                // Carregar a tela de CadastroAnimal e preencher os campos
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/controle/animal/view/CadastroAnimal.fxml"));
                 Parent root = loader.load();
-                CadastroAnimalController cadastroAnimalController = loader.getController(); // Obtém o controller da nova tela
+                CadastroAnimalController cadastroAnimalController = loader.getController(); 
 
-                // Preencher os campos do CadastroAnimal com os dados do animal encontrado
                 cadastroAnimalController.preencherCampos(animal);
 
                 Stage newStage = new Stage();
@@ -90,7 +87,6 @@ public class PesquisaAnimalController {
                 newStage.setTitle("Cadastro de Animal");
                 newStage.setResizable(false);
                 newStage.show();
-                // Fecha a tela atual
                 ((Stage) ((Node) event.getSource()).getScene().getWindow()).close();
             } else {
                 showAlert("Animal não encontrado", "Nenhum animal encontrado com o número do brinco informado.");
