@@ -28,7 +28,7 @@ public class PesquisaAnimalDBDAO implements PesquisaAnimalDAO {
         open();
         sql = "SELECT * FROM CadastroAnimal WHERE animalId = ?";
         statement = connection.prepareStatement(sql);
-        statement.setInt(1, codigoAnimal); // Usando o código do animal
+        statement.setInt(1, codigoAnimal);
         result = statement.executeQuery();
 
         CadastroAnimal animal = null;
