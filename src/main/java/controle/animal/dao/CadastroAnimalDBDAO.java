@@ -28,7 +28,7 @@ public class CadastroAnimalDBDAO implements CadastroAnimalDAO {
         sql = "INSERT INTO CadastroAnimal (animalId, fazendaId, raca, peso, rebanho, " +
                 "procedencia, especie, sexo, alimentacao, especificacao, dataNascimento, dataChegada) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         statement = connection.prepareStatement(sql);
-        statement.setInt(1, animal.getAnimalId()); // Definindo o número do brinco como animalId
+        statement.setInt(1, animal.getAnimalId()); 
         statement.setString(2, animal.getFazendaId());
         statement.setString(3, animal.getRaca());
         statement.setFloat(4, animal.getPeso());
